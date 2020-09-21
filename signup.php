@@ -32,16 +32,24 @@
         </nav>
 
         
-        <form class="form-signin">
-            <!-- <img class="mb-4" src="/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> -->
-            <h1 class="h3 mb-3 font-weight-normal">Please Login</h1>
-            
-            <input type="email" class="form-control" placeholder="Username" required autofocus>
-            
-            <input type="password" class="form-control" placeholder="Password" required>
-            
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
-            <a class="btn btn-lg btn-primary btn-block" href="signup.php">Or Signup</a>
+        <form class="form-signin" method="POST" action="signup-helper.php">
+            <h1 class="h3 mb-3 font-weight-normal">Signup Here!</h1>
+
+            <input type="text" class="form-control" name="first_name" placeholder="First Name"/>
+
+            <input type="text" class="form-control" name="last_name" placeholder="Last Name"/>
+
+            <input type="text" class="form-control" name="username" placeholder="Username"/>
+
+            <input type="email" class="form-control" name="email" placeholder="Email"/>
+ 
+
+            <input type="password" class="form-control" name="password" placeholder="Password"/>
+
+
+            <input type="password" class="form-control" name="password_repeat" placeholder="Repeat Password"/>
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Create Account</button>
         </form>
     </body>
 </html>
