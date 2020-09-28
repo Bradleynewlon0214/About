@@ -149,7 +149,7 @@
             //The zip should zip the arrays like so: field1 = value1, field2 = value2, ... , fieldN = valueN.
             //return true if successful, false if not
             $this->tableExists($table);
-            $fieldsValues = $this->zip($fieldsToUpdate, $values);
+            $fieldsValues = $this->zip($fieldsToUpdate, $values, false);
             $fieldsValues = implode(", ", $fieldsValues);
             $sql = "UPDATE `{$table}` SET {$fieldsValues} WHERE {$condition}";
             $result = $this->query($sql);
@@ -178,8 +178,12 @@
             if($result){
                 return $result;
             } else{
-                return null;
+                printf("No result");
             }
+        }
+
+        public function close(){
+            $this->connection->close();
         }
 
         
