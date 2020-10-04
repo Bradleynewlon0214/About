@@ -81,7 +81,7 @@
 
         private function login($email, $password){
             $db = new Database();
-            $result = $db->select("users", ['first_name', 'last_name', 'username', 'email', 'password'], "`email` = '{$email}' AND `password` = '{$password}'");
+            $result = $db->select("users", ['id', 'first_name', 'last_name', 'username', 'email', 'password', 'profile_picture'], "`email` = '{$email}' AND `password` = '{$password}'");
             if($row = $result->fetch_assoc()){
                 $this->userData = $row;
                 session_start();

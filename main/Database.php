@@ -152,6 +152,7 @@
             $fieldsValues = $this->zip($fieldsToUpdate, $values, false);
             $fieldsValues = implode(", ", $fieldsValues);
             $sql = "UPDATE `{$table}` SET {$fieldsValues} WHERE {$condition}";
+            print($sql);
             $result = $this->query($sql);
             return $result;
         }
