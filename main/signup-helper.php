@@ -1,6 +1,6 @@
 <?php
 
-    require("main/User.php");
+    require("init.php");
     
     $register_data = [
         "first_name" => sanitize($_POST['first_name']),
@@ -13,6 +13,6 @@
 
     $user = new User([], $register_data);
 
-    header('Location: about.php');
+    header('Location: ../about.php');
 
 ?>

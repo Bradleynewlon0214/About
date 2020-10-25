@@ -3,16 +3,23 @@
     <head>
         <title>Login</title>
         <link rel="stylesheet" href="css/login.css">
+    </head>
+    <?php
+        require("includes/header.php");
+        require("main/init.php");
+    ?>
 
-      <?php
-        require("header.php");
-        if(isset($_SESSION['user'])){
-          header("Location: about.php");
-        }
-      ?>
+
+    <body>
+
+        <?php 
+        
+          require("includes/nav.php");
+        
+        ?>
 
         
-        <form class="form-signin" method="POST" action="login-helper.php">
+        <form class="form-signin" method="POST" action="main/login-helper.php">
             
             <h1 class="h3 mb-3 font-weight-normal">Please Login</h1>
             

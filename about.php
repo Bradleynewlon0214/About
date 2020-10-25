@@ -1,65 +1,39 @@
 <!DOCTYPE html>
 <html>
-    <head> 
-        <title>Bradley Newlon - About</title>
-        <link rel="stylesheet" href="css/main.css" />
-
+    <head>
+        <link rel="stylesheet/css" href="css/main.css" />
+    </head>
     <?php
-        require("header.php");
+        require("includes/header.php");
+        require("main/init.php");
     ?>
-
-        <div class="segment purple">
-            <div class="container">
-
-                    <h1>About Me!</h1>
-                    <p>
-                        My name is Bradley Newlon and I am a senior majoring in Economics with minors in Statistics and Computer Science.
-                        I tutor microeconomics and have been doing so for three years now. I'm taking Computer Science courses because it's always something I've been interested in and have tried to learn about in my free time. 
-                    </p>
-
-                    <br />
-
-
-                    <a 
-                        class="btn btn-dark"
-                        href="https://github.com/Bradleynewlon0214/About"
-                    >
-                        Github
-                    </a>
-
-                    <a 
-                        class="btn btn-light"
-                        href="https://ourworldindata.org/grapher/world-population-in-extreme-poverty-absolute"
-                    >
-                        Poverty Over Time
-                    </a>
-
-
-                    <a 
-                        class="btn btn-success"
-                        href="https://en.wikipedia.org/wiki/Microeconomics"
-                    >
-                        Microeconomics
-                    </a>
-
-
-            </div>
-
-        </div>
+    <body>
+        <?php 
+            require("includes/nav.php");
+        ?>
 
         <div class="container">
+            <h2>Posts</h2>
             <div class="row">
                 <div class="column">
-                    <img src="images/SUREProject.png" />
-                    <img src="images/laffer-curve.png"/>
-                </div>
-                <div class="column">
-                    <img src="images/stonks.jpg" />
-                    <img src="images/emjoi.jpg" />
-                </div>
-                <div class="column">
-                    <img src="images/monopsony.jpg" />
-                    <img src="images/EBhm4NIXsAEH36P.jpg" />
+                    <?php 
+                        $db = new Database();
+                        $posts = $db->select('posts', ['id', 'user_id', 'text', 'image'], "1");
+
+                        while($row = $posts->fetch_assoc()){
+                            ?>
+
+                                <div class="container">
+                                    <a href=<?php print("viewpost.php?id={$row['id']}"); ?>>
+                                        <img src=<?php print("{$row['image']}"); ?> />
+                                    </a>
+                                    <p><?php print("{$row['text']}"); ?></p>
+                                </div>
+
+
+                            <?php
+                        }
+                    ?>
                 </div>
             </div>
         </div>

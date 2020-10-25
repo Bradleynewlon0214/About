@@ -139,6 +139,7 @@
             $fields = "(`" . implode("`, `", $fieldsToInsertInto) . "`)";
             $values = "('" . implode("', '", $values) . "')";
             $sql = "INSERT INTO {$table} {$fields} VALUES {$values}";
+            print($sql);
             $result = $this->query($sql);
             return $result;
         }
@@ -152,7 +153,6 @@
             $fieldsValues = $this->zip($fieldsToUpdate, $values, false);
             $fieldsValues = implode(", ", $fieldsValues);
             $sql = "UPDATE `{$table}` SET {$fieldsValues} WHERE {$condition}";
-            print($sql);
             $result = $this->query($sql);
             return $result;
         }

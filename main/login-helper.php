@@ -1,6 +1,5 @@
 <?php
-    include("main/User.php");
-    include("main/utils.php");
+    require("init.php");
     
     $login_data = [
         "email" => sanitize($_POST['email']),
@@ -9,6 +8,6 @@
 
     $user = new User($login_data, []);
 
-    header('Location: about.php');
+    header('Location: ../about.php');
 
 ?>

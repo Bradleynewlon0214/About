@@ -1,56 +1,77 @@
 <!DOCTYPE html>
 <html>
-    <head> 
+    <head>
         <title>Profile</title>
-        <link rel="stylesheet" href="css/main.css" />
-
+        <link ref="stylesheet/css" href="css/main.css" />
+    </head>
     <?php
-        require("header.php");
-        if(!isset($_SESSION['user'])){
-            header("Location: about.php");
-        }
+        require("main/init.php"); 
+        require("includes/header.php");
     ?>
-    
-    <?php 
-        if(isset($_GET['success'])){
-            print("<div class='alert alert-success' role='alert'>");
-            print($_GET['success']);
-            print("</div>");
-        }
 
-        if(isset($_GET['error'])){
-            print("<div class='alert alert-danger' role='alert'>");
-            print($_GET['error']);
-            print("</div>");
-        }
-
-        if(isset($_GET['message'])){
-            print("<div class='alert alert-warning' role='alert'>");
-            print($_GET['message']);
-            print("</div>");
-        }
+    <body>
+        <?php 
+            require("includes/nav.php");
+        ?>
     
-    ?>
-        <div class="segment">
-        </div>
-        <div class="segment purple">
+        <?php 
+            if(isset($_GET['success'])){
+                print("<div class='alert alert-success' role='alert'>");
+                print($_GET['success']);
+                print("</div>");
+            }
+
+            if(isset($_GET['error'])){
+                print("<div class='alert alert-danger' role='alert'>");
+                print($_GET['error']);
+                print("</div>");
+            }
+
+            if(isset($_GET['message'])){
+                print("<div class='alert alert-warning' role='alert'>");
+                print($_GET['message']);
+                print("</div>");
+            }
+        
+        ?>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
             <div class="container">
+                <div class="container">
+                    <div class="row">
 
-                <?php
-                    print("<img src='{$_SESSION['user']['profile_picture']}'/>");
-                ?>
+                        <div class="col-md">
+                            <?php
+                                print("<img src='{$_SESSION['user']['profile_picture']}'/>");
+                            ?>
 
-                <br/>
+                            <br/>
 
-                <form method="POST" action="upload-helper.php" enctype="multipart/form-data">
-                    <div class="form-group">
-                        <label for="uploadButton">Upload Profile Picture!</label>
-                        <input type="file" class="form-control-file" name="profile" id="uploadButton" />
+                            <form method="POST" action="main/upload-helper.php" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label for="uploadButton">Upload Profile Picture!</label>
+                                    <input type="file" class="form-control-file" name="profile" id="uploadButton" />
+                                </div>
+                                <input type="submit" class="btn btn-dark" name="submit"/>
+                            </form>
+                        </div>
+
+                        <div class="col-md">
+                        <h3><a href="newpost.php" >New Post</a></h3>
+                        </div>
+
                     </div>
-                    <input type="submit" class="btn btn-dark" name="submit"/>
-                </form>
+                
+                </div>
             </div>
-        </div>
+
+
+            
+
 
     </body>
 </html>

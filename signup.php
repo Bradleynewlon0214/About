@@ -3,16 +3,21 @@
     <head>
         <title>Signup</title>
         <link rel="stylesheet" href="css/login.css">
+    </head>
+    <?php 
+    
+        require("includes/header.php");
+        require("main/init.php");
+
+    ?>
+    <body>
 
         <?php 
-            require("header.php");
-            if(isset($_SESSION['user'])){
-                header("Location: about.php");
-            }
+            require("includes/nav.php");
         ?>
 
         
-        <form class="form-signin" method="POST" action="signup-helper.php">
+        <form class="form-signin" method="POST" action="main/signup-helper.php">
             <h1 class="h3 mb-3 font-weight-normal">Signup Here!</h1>
 
             <input type="text" class="form-control" name="first_name" placeholder="First Name"/>
