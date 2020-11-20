@@ -46,9 +46,6 @@
         <br/>
         <br/>
 
-        <?php
-            print($user_data['profile_picture']);
-        ?>
 
             <div class="container">
                 <div class="container">
