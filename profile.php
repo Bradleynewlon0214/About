@@ -54,7 +54,7 @@
                             <form method="POST" action="main/upload-helper.php" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label for="uploadButton">Upload Profile Picture!</label>
-                                    <input type="file" class="form-control-file" name="profile" id="uploadButton" />
+                                    <input type="file" class="form-control-file" name="profile" id="uploadButton"/>
                                 </div>
                                 <input type="submit" class="btn btn-dark" name="submit"/>
                             </form>

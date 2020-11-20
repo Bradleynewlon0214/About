@@ -13,7 +13,7 @@
 
     // print_r($_POST);
 
-    header("Location: ../about.php"); 
+    header("Location: ../index.php"); 
 
 
 ?>

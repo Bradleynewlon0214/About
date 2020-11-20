@@ -14,7 +14,7 @@
         
         private $host = "localhost";
         private $username = "root";
-        private $password = "mysql230";
+        private $password = ""; //mysql230
         private $database = "cs230";
         private $connection;
         private $tableNames;
@@ -25,7 +25,7 @@
             //returns nothing
             $this->connection = new mysqli($this->host, $this->username, $this->password, $this->database);
             if($this->connection->connect_errno){
-                printf("Connection failed: %s\n", $connection->connect_error);
+                printf("Connection failed: %s\n", $this->connection->connect_error);
                 exit();
             }
         }

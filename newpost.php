@@ -13,19 +13,43 @@
         <?php 
             require("includes/nav.php");
         ?>
-        <div class="segment"></div>
+
+        <br />
+        <br />
+        <br />
+        <br />
 
 
         <div class="container">
-            <h3>New Post!</h3>
-            <form method="POST" action="main/post-helper.php" enctype="multipart/form-data">
-                <div class="form-group">
-                    <label for="uploadButton">Upload Image</label>
-                    <input type="file" class="form-control-file" name="cover" id="uploadButton" />
-                    <textarea name="text"></textarea>
+            <div class="row">
+            
+                <div class="col-lg-12">
+
+                    <h3>New Post!</h3>
+                    <form method="POST" action="main/post-helper.php" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="uploadButton">Upload Image(s)</label>
+                            <input type="file" class="form-control-file" name="files[]" id="uploadButton" multiple/>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="title" placeholder="Title" />
+                            <textarea class="form-control" name="text" placeholder="Content"></textarea>
+                        </div>
+
+
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-dark" name="submit"/>
+                        </div>
+
+                       
+                    </form>
+
+
                 </div>
-                <input type="submit" class="btn btn-dark" name="submit"/>
-            </form>
+            
+            </div>
+            
         </div>
 
 

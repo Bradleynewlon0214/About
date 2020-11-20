@@ -13,6 +13,6 @@
 
     $user = new User([], $register_data);
 
-    header('Location: ../about.php');
+    header('Location: ../index.php');
 
 ?>
