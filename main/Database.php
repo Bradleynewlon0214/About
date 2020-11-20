@@ -14,7 +14,7 @@
         
         private $host = "localhost";
         private $username = "root";
-        private $password = ""; //mysql230
+        private $password = "mysql230"; //mysql230
         private $database = "cs230";
         private $connection;
         private $tableNames;
