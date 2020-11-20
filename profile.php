@@ -32,6 +32,11 @@
                 print($_GET['message']);
                 print("</div>");
             }
+
+            $db = new Database();
+
+            $user = $db->select('users', ['id', 'username', 'profile_picture'], "`id`={$_SESSION['user']['id']}");
+            $user_data = $user->fetch_assoc();
         
         ?>
         <br/>
@@ -40,14 +45,21 @@
         <br/>
         <br/>
         <br/>
+
+        <?php
+            print($user_data['profile_picture']);
+        ?>
+
             <div class="container">
                 <div class="container">
-                    <div class="row">
+                <div class="row">
+                    <h2> Hello, <?php print($user_data['username']);?>!</h2>
+                </div>
 
-                        <div class="col-md">
-                            <?php
-                                print("<img src='{$_SESSION['user']['profile_picture']}'/>");
-                            ?>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <img src=<?php print($user_data['profile_picture'])?>/>
 
                             <br/>
 
@@ -60,7 +72,7 @@
                             </form>
                         </div>
 
-                        <div class="col-md">
+                        <div class="col-lg-6">
                         <h3><a href="newpost.php" >New Post</a></h3>
                         </div>
 

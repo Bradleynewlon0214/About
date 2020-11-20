@@ -23,7 +23,7 @@ if ($_FILES["profile"]["size"] / 1024 /1024 > 10) {
      header("Location: ../profile.php?message=Only JPG, JPEG, PNG & GIF files are allowed.");
 } else {
 
-    $file = "picpath/" . hash('ripemd160', $_FILES['profile']['name'] . round(microtime(true) * 1000)) . "." . $fileType;
+    $file = hash('ripemd160', $_FILES['profile']['name'] . round(microtime(true) * 1000)) . "." . $fileType;
 
     $url = "";
 
@@ -42,7 +42,7 @@ if ($_FILES["profile"]["size"] / 1024 /1024 > 10) {
     
         $result = $s3Client->putObject([
             'Bucket' => $bucket,
-            'Key' => $file,
+            'Key' => $_FILES['profile']['name'],
             'SourceFile' => $_FILES['profile']['temp_name'],
             'ACL' => 'public-read'
         ]);
